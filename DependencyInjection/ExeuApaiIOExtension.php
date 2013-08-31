@@ -21,6 +21,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
+use ApaiIO\Configuration\GenericConfiguration;
 
 /**
  * This is the class that loads and manages your bundle configuration
@@ -38,6 +39,15 @@ class ExeuApaiIOExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.xml');
+
+        $this->loadApaiIOService($config, $loader, $container);
+    }
+
+    protected function loadApaiIOService($config, Loader\XmlFileLoader $loader, ContainerBuilder $container)
+    {
+        $loader->load('apaiio-service.xml');
+
+        $apaiIOService = $container->getDefinition('apaiio');
+        $apaiIOService->replaceArgument(0, $config);
     }
 }

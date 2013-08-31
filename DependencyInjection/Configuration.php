@@ -34,6 +34,26 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('exeu_apai_io');
+        $rootNode
+            ->children()
+                ->scalarNode('accesskey')
+                    ->isRequired()
+                ->end()
+                ->scalarNode('secretkey')
+                    ->isRequired()
+                ->end()
+                ->scalarNode('country')
+                    ->isRequired()
+                ->end()
+                ->scalarNode('associatetag')
+                    ->isRequired()
+                ->end()
+                ->scalarNode('request')
+                ->end()
+                ->scalarNode('response')
+                ->end()
+             ->end()
+        ->end();
 
         return $treeBuilder;
     }
