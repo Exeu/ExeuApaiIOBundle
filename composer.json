@@ -1,0 +1,23 @@
+{
+    "name": "exeu/apai-io-bundle",
+    "type": "symfony-bundle",
+    "description": "Amazon Product Advertising PHP Library Symfony 2 Bundle",
+    "keywords": ["Amazon", "ECS", "Product Advertising", "SOAP", "REST", "Products", "Symfony 2", "Bundle"],
+    "homepage": "https://github.com/Exeu/apai-io-bundle",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Jan Eichhorn",
+            "email": "exeu65@googlemail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.3",
+        "exeu/apai-io": "dev-master"
+    },
+    "autoload": {
+        "psr-0": { "Exeu\\ApaiIOBundle": "" }
+    },
+    "target-dir": "Exeu/ApaiIOBundle"
+}
