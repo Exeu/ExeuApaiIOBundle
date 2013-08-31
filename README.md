@@ -50,6 +50,19 @@ exeu_apai_io:
     country: COUNTRY (eg. de, com)
 ```
 
+Optional configuration
+---------
+
+If you want to change the requesttype or the responsetransformer you can do this by adding it to your config file:
+
+```yaml
+# app/config/config.yml
+
+exeu_apai_io:
+    request: \ApaiIO\Request\Soap\Request
+    response: \ApaiIO\ResponseTransformer\ObjectToArray
+```
+
 Usage
 ---------
 
