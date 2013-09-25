@@ -11,7 +11,8 @@
 
     <services>
         <service id="apaiio" class="%apaiio.class%" factory-class="%apaiio.factory.class%" factory-method="get" public="true">
-            <argument></argument>
+            <argument />
+            <argument type="service" id="event_dispatcher" />
         </service>
     </services>
 </container>

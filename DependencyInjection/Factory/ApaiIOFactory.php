@@ -19,6 +19,9 @@ namespace Exeu\ApaiIOBundle\DependencyInjection\Factory;
 
 use ApaiIO\ApaiIO;
 use ApaiIO\Configuration\GenericConfiguration;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Exeu\ApaiIOBundle\Request\EventableRequest;
+use Exeu\ApaiIOBundle\ResponseTransformer\EventableResponseTransformer;
 
 /**
  * A base factoryservice for creating new ApaiIO-Core instances
@@ -30,11 +33,12 @@ class ApaiIOFactory
     /**
      * Builds a new ApaiIO instance
      *
-     * @param array $config The configuration
+     * @param array                    $config          The configuration
+     * @param EventDispatcherInterface $eventDispatcher The Symfony-Eventdispatcher
      *
      * @return \ApaiIO\ApaiIO
      */
-    public static function get($config)
+    public static function get(array $config, EventDispatcherInterface $eventDispatcher)
     {
         $configuration = new GenericConfiguration();
         $configuration
@@ -52,6 +56,20 @@ class ApaiIOFactory
         if (true === isset($config['response'])) {
             $configuration->setResponseTransformer($config['response']);
         }
+
+        // Wrapping the configured request
+        $configuration->setRequestFactory(
+            function ($request) use ($eventDispatcher) {
+                return new EventableRequest($request, $eventDispatcher);
+            }
+        );
+
+        // Wrapping the configured responsetransformer
+        $configuration->setResponseTransformerFactory(
+            function ($responseTransformer) use ($eventDispatcher) {
+                return new EventableResponseTransformer($responseTransformer, $eventDispatcher);
+            }
+        );
 
         return new ApaiIO($configuration);
     }
