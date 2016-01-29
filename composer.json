@@ -11,10 +11,9 @@
             "email": "exeu65@googlemail.com"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "php": ">=5.3.3",
-        "exeu/apai-io": "dev-master"
+        "exeu/apai-io": "^1.8"
     },
     "autoload": {
         "psr-0": { "Exeu\\ApaiIOBundle": "" }
