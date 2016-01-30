@@ -13,6 +13,7 @@
     ],
     "require": {
         "php": ">=5.3.3",
+        "symfony/symfony": ">=2.6",
         "exeu/apai-io": "^1.8"
     },
     "autoload": {
