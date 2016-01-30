@@ -11,7 +11,6 @@
 
     <services>
         <service id="apaiio" class="%apaiio.class%" factory-class="%apaiio.factory.class%" factory-method="get" public="true">
-            <factory class="%apaiio.factory.class%" method="get" />
             <argument></argument>
         </service>
     </services>
