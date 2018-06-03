@@ -1,8 +1,8 @@
 {
     "name": "exeu/apai-io-bundle",
     "type": "symfony-bundle",
-    "description": "Amazon Product Advertising PHP Library Symfony 2 Bundle",
-    "keywords": ["Amazon", "ECS", "Product Advertising", "SOAP", "REST", "Products", "Symfony 2", "Bundle"],
+    "description": "Amazon Product Advertising PHP Library Symfony Bundle",
+    "keywords": ["Amazon", "ECS", "Product Advertising", "SOAP", "REST", "Products", "Symfony", "Bundle"],
     "homepage": "https://github.com/Exeu/apai-io-bundle",
     "license": "Apache-2.0",
     "authors": [
@@ -12,12 +12,12 @@
         }
     ],
     "require": {
-        "php": ">=5.3.3",
-        "symfony/symfony": ">=2.6",
-        "exeu/apai-io": "^1.8"
+        "php": "^5.6.0|^7.0",
+        "symfony/framework-bundle": "^3.2|^4",
+        "symfony/dependency-injection": "^3.3|^4",
+        "exeu/apai-io": "~2.0"
     },
     "autoload": {
-        "psr-0": { "Exeu\\ApaiIOBundle": "" }
-    },
-    "target-dir": "Exeu/ApaiIOBundle"
+        "psr-4": { "Exeu\\ApaiIOBundle\\": "src/" }
+    }
 }
