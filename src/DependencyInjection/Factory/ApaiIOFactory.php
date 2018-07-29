@@ -52,9 +52,9 @@ class ApaiIOFactory
             $configuration->setRequest($request);
         }
 
-        // Setting the default responsetransformer if it has been setted up
+        // Setting the default ResponseTransformer if it has been setted up
         if (true === isset($config['response'])) {
-            $configuration->setResponseTransformer($config['response']);
+            $configuration->setResponseTransformer(new $config['response']);
         }
 
         return new ApaiIO($configuration);

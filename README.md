@@ -65,14 +65,13 @@ exeu_apai_io:
 Optional configuration
 ---------
 
-If you want to change the requesttype or the responsetransformer you can do this by adding it to your config file:
+If you want to change the ResponseTransformer you can do this by adding it to your config file:
 
 ```yaml
 # app/config/config.yml
 
 exeu_apai_io:
-    request: \ApaiIO\Request\Soap\Request
-    response: \ApaiIO\ResponseTransformer\ObjectToArray
+    response: \ApaiIO\ResponseTransformer\XmlToArray
 ```
 
 Usage
@@ -106,4 +105,4 @@ var_dump($formattedResponse);
 
 For more detailed information See: [ApaiIO - Examples](https://github.com/Exeu/apai-io/tree/master/samples)
 
-Documentation of ApaiIO: [ApaiIO - Documentation](http://exeu.github.io/apai-io/)
+Documentation of ApaiIO: [ApaiIO - Documentation](http://apai-io.readthedocs.io/en/latest/index.html)
