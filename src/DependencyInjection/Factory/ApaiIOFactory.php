@@ -46,6 +46,10 @@ class ApaiIOFactory
         // Setting the default request-type if it has been setted up
         if (true === isset($config['request'])) {
             $configuration->setRequest($config['request']);
+        } else {
+            $client = new \GuzzleHttp\Client();
+            $request = new \ApaiIO\Request\GuzzleRequest($client);
+            $configuration->setRequest($request);
         }
 
         // Setting the default responsetransformer if it has been setted up
