@@ -19,6 +19,7 @@ namespace Exeu\ApaiIOBundle\DependencyInjection\Factory;
 
 use ApaiIO\ApaiIO;
 use ApaiIO\Configuration\GenericConfiguration;
+use Psr\Container\ContainerInterface;
 
 /**
  * A base factoryservice for creating new ApaiIO-Core instances
@@ -34,7 +35,7 @@ class ApaiIOFactory
      *
      * @return \ApaiIO\ApaiIO
      */
-    public static function get($config)
+    public static function get($config, ContainerInterface $container)
     {
         $configuration = new GenericConfiguration();
         $configuration
@@ -43,7 +44,7 @@ class ApaiIOFactory
             ->setAssociateTag($config['associatetag'])
             ->setCountry($config['country']);
 
-        // Setting the default request-type if it has been setted up
+        // Setting the default request-type if it has been set up
         if (true === isset($config['request'])) {
             $configuration->setRequest($config['request']);
         } else {
@@ -52,9 +53,9 @@ class ApaiIOFactory
             $configuration->setRequest($request);
         }
 
-        // Setting the default ResponseTransformer if it has been setted up
+        // Setting the default ResponseTransformer if it has been set up
         if (true === isset($config['response'])) {
-            $configuration->setResponseTransformer(new $config['response']);
+            $configuration->setResponseTransformer($container->get($config['response']));
         }
 
         return new ApaiIO($configuration);

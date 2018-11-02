@@ -12,7 +12,8 @@
     <services>
         <service id="apaiio" class="%apaiio.class%" public="true">
             <factory class="%apaiio.factory.class%" method="get" />
-            <argument></argument>
+            <argument />
+            <argument type="service" id="service_container"/>
         </service>
     </services>
 </container>
