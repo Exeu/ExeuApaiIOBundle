@@ -1,10 +1,22 @@
 ExeuApaiIOBundle
 ==============
 
-Symfony 2 integration of the ApaiIO-library.
+Symfony integration of the ApaiIO-library.
 
 Installation
 ---------
+
+Applications that use Symfony Flex
+----------------------------------
+
+Open a command console, enter your project directory and execute:
+
+```console
+$ composer require exeu/apai-io-bundle dev-master
+```
+
+Applications that don't use Symfony Flex
+----------------------------------------
 
 All you have to do is to add the following lines to your composer.json:
 
@@ -53,14 +65,13 @@ exeu_apai_io:
 Optional configuration
 ---------
 
-If you want to change the requesttype or the responsetransformer you can do this by adding it to your config file:
+If you want to change the ResponseTransformer you can do this by adding it to your config file:
 
 ```yaml
 # app/config/config.yml
 
 exeu_apai_io:
-    request: \ApaiIO\Request\Soap\Request
-    response: \ApaiIO\ResponseTransformer\ObjectToArray
+    response: \ApaiIO\ResponseTransformer\XmlToArray
 ```
 
 Usage
@@ -94,4 +105,4 @@ var_dump($formattedResponse);
 
 For more detailed information See: [ApaiIO - Examples](https://github.com/Exeu/apai-io/tree/master/samples)
 
-Documentation of ApaiIO: [ApaiIO - Documentation](http://exeu.github.io/apai-io/)
+Documentation of ApaiIO: [ApaiIO - Documentation](http://apai-io.readthedocs.io/en/latest/index.html)

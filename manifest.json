@@ -1,0 +1,5 @@
+{
+  "bundles": {
+    "Exeu\\ApaiIOBundle\\ExeuApaiIOBundle": ["all"]
+  }
+}
